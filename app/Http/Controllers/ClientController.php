@@ -7,17 +7,17 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-	public function listClient()
+    public function listClient()
     {
         $allClients = Clients::all();
         return view('clients.list-clients',compact('allClients'));
     }
 
     public function addClient() {
-		return view('clients.add-clients');
-	}
+        return view('clients.add-clients');
+    }
 
-	public function storeClient(Request $request)
+    public function storeClient(Request $request)
     {
         $this->validate($request,[
             'client_name' => 'required',
@@ -29,7 +29,7 @@ class ClientController extends Controller
         $slug = str_slug($request->client_name);
         if(isset($image)){
             $currentDate = Carbon::now()->toDateString();
-            $imagename = $slug.'-'.$currentDate.'-'.uniqid().'-'.
+            $imagename = $slug.'-'.$currentDate.'-'.uniqid().'.'.
             $image->getClientOriginalExtension();
             if(!file_exists('uploads/clientLogo')){
                 mkdir('uploads/clientLogo',0777,true);
@@ -41,7 +41,7 @@ class ClientController extends Controller
 
         $client = new Clients();
         $client->client_name = $request->client_name;
-        $client->client_company_logo = 'uploads/clientLogo/'.$imagename;
+        $client->client_company_logo = $imagename;
         $client->client_details = $request->client_details;
         $client->client_status = 1;
         $client->save();
@@ -54,47 +54,46 @@ class ClientController extends Controller
         return view('clients.edit-clients',compact('editClient'));
     }
 
-    public function update(Request $request, $id)
+    public function updateClient(Request $request, $id)
     {
         $this->validate($request,[
-            'category' => 'required',
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'image' => 'mimes:jpeg,jpg,bmp,png',
+            'client_name' => 'required',
+            // 'client_company_logo' => 'required|mimes:jpeg,jpg,bmp,png',
+            'client_details' => 'required'
         ]);
-        $item = Item::find($id);
-        $image = $request->file('image');
+
+        $updateClient = Clients::find($id);
+        $image = $request->file('client_company_logo');
         $slug = str_slug($request->name);
         if(isset($image)){
             $currentDate = Carbon::now()->toDateString();
-            $imagename = $slug.'-'.$currentDate.'-'.uniqid().'-'.
+            $imagename = $slug.'-'.$currentDate.'-'.uniqid().'.'.
             $image->getClientOriginalExtension();
-            if(!file_exists('uploads/item')){
-                mkdir('uploads/item',0777,true);
+            if(!file_exists('uploads/clientLogo')){
+                mkdir('uploads/clientLogo',0777,true);
             }
-            unlink('uploads/item/'.$item->image);
-            $image->move('uploads/item',$imagename);
+            unlink('uploads/clientLogo/'.$updateClient->client_company_logo);
+            $image->move('uploads/clientLogo',$imagename);
         }else{
-            $imagename = $item->image;
+            $imagename = $updateClient->client_company_logo;
         }
-        $item->category_id = $request->category;
-        $item->name = $request->name;
-        $item->description = $request->description;
-        $item->price = $request->price;
-        $item->image = $imagename;
-        $item->save();
-        return redirect()->route('item.index')->with('successMsg','Item Successfully Updated');
-        //return $request;
+        
+        $updateClient->client_name = $request->client_name;
+        $updateClient->client_company_logo = $imagename;
+        $updateClient->client_details = $request->client_details;
+        $updateClient->client_status = $request->client_status;
+        $updateClient->save();  
+        return redirect()->back()->with('successMsg','Clients Successfully Updated');
     }
 
-    public function destroy($id)
+    public function deleteClient($id)
     {
-        $item = Item::find($id);
-        if(file_exists('uploads/item/'.$item->image)){
-            unlink('uploads/item/'.$item->image);
+        $deleteClient = Clients::find($id);
+        if(file_exists('uploads/clientLogo/'.$deleteClient->client_company_logo)){
+            unlink('uploads/clientLogo/'.$deleteClient->client_company_logo);
         }
-        $item->delete();
-        return redirect()->back()->with('successMsg','Item successfully Deleted');
+        $deleteClient->delete();
+        return redirect()->back()->with('successMsg','Clients successfully Deleted');
     }
 }
+

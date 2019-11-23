@@ -7,9 +7,10 @@
 		<div class="box-header" data-original-title>
 			<h2><i class="halflings-icon edit"></i><span class="break"></span>Add Client</h2>
 			<div class="box-icon">
-				<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+				<a href="{{url('/list-clients')}}" style="background-color: purple;text-decoration: none;padding: 5px 10px;color: white;">Back</a>
+				<!-- <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
 				<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
-				<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+				<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a> -->
 			</div>
 		</div>
 		<div class="box-content">
@@ -39,7 +40,9 @@
 
 					<div class="form-actions">
 					  <button type="submit" class="btn btn-primary">Save Client</button>
-					  <button type="reset" class="btn">Cancel</button>
+					  <button type="reset" class="btn btn-info">
+						  <a href="{{url('/list-clients')}}" style="color: white;text-decoration: none;">Cancel</a>
+					  </button>
 					</div>
 				  </fieldset>
 			</form>   

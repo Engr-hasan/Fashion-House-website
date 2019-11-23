@@ -25,3 +25,20 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+
+$factory->define(App\Clients::class, function (Faker $faker) {
+    return [
+        'client_name' => $faker->sentence,
+        'client_details' => $faker->paragraph,
+        'client_company_logo' => $faker->imageUrl,
+        'client_status' => 1,
+    ];
+});
+
+$factory->define(App\Gallery::class, function (Faker $faker) {
+    return [
+        'gallery_image_title' => $faker->sentence,
+        'gallery_image' => $faker->image('public/uploads/galleryImage',640,480, null, false),
+        'gallery_status' => 1,
+    ];
+});
