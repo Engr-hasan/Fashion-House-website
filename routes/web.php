@@ -8,6 +8,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/list-sliders', 'HomeSliderController@listSlider');
+Route::get('/add-slider', 'HomeSliderController@addSlider');
+Route::post('/store-slider', 'HomeSliderController@storeSlider');
+Route::get('/edit-slider/{id}', 'HomeSliderController@editSlider');
+Route::post('/update-slider/{id}', 'HomeSliderController@updateSlider');
+Route::get('/delete-slider/{id}', 'HomeSliderController@deleteSlider');
+
 Route::get('/list-clients', 'ClientController@listClient');
 Route::get('/add-client', 'ClientController@addClient');
 Route::post('/store-client', 'ClientController@storeClient');

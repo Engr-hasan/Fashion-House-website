@@ -31,6 +31,7 @@
 
             <div id="content" class="span10">
                 <div class="row-fluid">
+                    @include('layouts.dashboard')
                     @yield('contents')
                 </div>
             </div>

@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\HomeSlider;
+use App\Clients;
+use App\Gallery;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +26,12 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function dashboardAllDataCount(){
+        $HomeSliderCount = HomeSlider::all()->count();
+        $ClientsCount = Clients::all()->count();
+        $GalleryCount = Gallery::all()->count();
+        return view('layouts.dashboard',compact('HomeSliderCount','ClientsCount','GalleryCount'));
     }
 }
