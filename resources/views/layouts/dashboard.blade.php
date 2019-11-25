@@ -1,15 +1,15 @@
 <div class="row-fluid">
-    <a class="quick-button metro yellow span2">
+    <a href="{{url('/list-sliders')}}" class="quick-button metro yellow span2">
         <i class="icon-group"></i>
         <p>Sliders</p>
         <span class="badge">{{ $HomeSliderCount }}</span>
     </a>
-    <a class="quick-button metro red span2">
+    <a href="{{url('/list-clients')}}" class="quick-button metro red span2">
         <i class="icon-comments-alt"></i>
         <p>Clients</p>
         <span class="badge">{{ $ClientsCount }}</span>
     </a>
-    <a class="quick-button metro blue span2">
+    <a href="{{url('/list-galleries')}}" class="quick-button metro blue span2">
         <i class="icon-shopping-cart"></i>
         <p>Galleries</p>
         <span class="badge">{{ $GalleryCount }}</span>
