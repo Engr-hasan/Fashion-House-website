@@ -1,4 +1,4 @@
-<!-- <div class="row-fluid"> 
+<div class="row-fluid">
     <a class="quick-button metro yellow span2">
         <i class="icon-group"></i>
         <p>Sliders</p>
@@ -27,5 +27,5 @@
         <i class="icon-barcode"></i>
         <p>Products</p>
     </a>
-    <div class="clearfix"></div>            
-</div> -->
+    <div class="clearfix"></div>
+</div>

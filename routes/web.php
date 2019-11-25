@@ -6,7 +6,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/list-sliders', 'HomeSliderController@listSlider');
 Route::get('/add-slider', 'HomeSliderController@addSlider');
