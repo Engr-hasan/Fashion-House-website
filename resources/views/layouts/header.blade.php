@@ -5,7 +5,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="index.html"><strong>FASHION</strong></a>
+        <a class="brand" href="{{url('/')}}"><strong>FASHION</strong></a>
         <div class="nav-no-collapse header-nav">
             <ul class="nav pull-right">
                 <li class="dropdown hidden-phone">
@@ -15,7 +15,7 @@
                 </li>
                 <li class="dropdown">
                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="halflings-icon white user"></i> Hasan Mahmud
+                        <i class="halflings-icon white user"></i> {{ Auth::user()->name }}
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">

@@ -25,13 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
-
-    public function dashboardAllDataCount(){
         $HomeSliderCount = HomeSlider::all()->count();
         $ClientsCount = Clients::all()->count();
         $GalleryCount = Gallery::all()->count();
-        return view('layouts.dashboard',compact('HomeSliderCount','ClientsCount','GalleryCount'));
+        return view('home',compact('HomeSliderCount','ClientsCount','GalleryCount'));
     }
 }

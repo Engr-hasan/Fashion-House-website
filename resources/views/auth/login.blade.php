@@ -119,7 +119,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-                                <a href="{{ url('/') }}" class="btn btn-info">Back</a>
+                                <a href="{{ url('/register') }}" class="btn btn-info">Register</a>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">

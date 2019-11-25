@@ -31,7 +31,7 @@
 
             <div id="content" class="span10">
                 <div class="row-fluid">
-                    {{--@include('layouts.dashboard')--}}
+                    @include('layouts.dashboard')
                     @yield('contents')
                 </div>
             </div>
@@ -57,6 +57,7 @@
     @include('layouts.footer')
 
     <script src="{{asset('admin/js/jquery-1.9.1.min.js')}}"></script>
+
     <script src="{{asset('admin/js/jquery-migrate-1.0.0.min.js')}}"></script>
 
     <script src="{{asset('admin/js/jquery-ui-1.10.0.custom.min.js')}}"></script>
@@ -74,9 +75,13 @@
     <script src='{{asset('admin/js/jquery.dataTables.min.js')}}'></script>
 
     <script src="{{asset('admin/js/excanvas.js')}}"></script>
+
     <script src="{{asset('admin/js/jquery.flot.js')}}"></script>
+
     <script src="{{asset('admin/js/jquery.flot.pie.js')}}"></script>
+
     <script src="{{asset('admin/js/jquery.flot.stack.js')}}"></script>
+
     <script src="{{asset('admin/js/jquery.flot.resize.min.js')}}"></script>
 
     <script src="{{asset('admin/js/jquery.chosen.min.js')}}"></script>
