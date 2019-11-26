@@ -16,7 +16,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check()) {   // && Auth::user()->name
+        if (Auth::check() && Auth::user()->name) {
             return $next($request);
         }else{
             return redirect()->route('login');
