@@ -1,0 +1,8 @@
+	app/Http/Controllers/HomeController.php
+	app/Http/Kernel.php
+        app/User.php
+        resources/views/home.blade.php
+        routes/web.php
+        app/Http/Middleware/UserActivity.php
+        resources/views/font-page.blade.php
+        resources/views/layouts/user-activity.blade.php
